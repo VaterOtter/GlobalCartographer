@@ -73,7 +73,6 @@ namespace GlobalCartographer
         void Start()
         {
             Instance = this;
-
             ChunksPerFrame = Config.Bind<int>("General", "ChunksPerFrame", 5, "how fast (and laggy) to run the forced update -- 1 slowest (little lag) -- 10 fastest (much lag)").Value;
 
             if (ChunksPerFrame < 1)
@@ -92,7 +91,7 @@ namespace GlobalCartographer
                 SecondsPerMessage = 1;
             }
 
-            StoreModId();
+            this.StoreModId();
 
             new Harmony(PluginInfo.PLUGIN_GUID).PatchAll();
         }
